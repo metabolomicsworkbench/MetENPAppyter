@@ -105,4 +105,10 @@ source('path/separate_data.R')<br/>
 Now please follow example in the vignette
 
 Run the vignette Jupyter Notebook on the web using My Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/metabolomicsworkbench/MetENP/main?filepath=vignettes%2FMetENP_vignette_Jupyter_notebook.ipynb)
+
 # MetENPAppyter
+To modify the Appyter, edit MetENP_Appyter_2.ipynb in /vignettes. 
+To run the Appyter locally:
+1. source venv/bin/activate
+2. appyter --profile=biojupies vignettes/MetENP_Appyter_2.ipynb 
+3. open the browser link that command gives (ie http://127.0.0.1:5000)
