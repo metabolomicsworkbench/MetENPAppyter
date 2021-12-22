@@ -1,0 +1,19 @@
+{
+  "name": "MetabolomicsStudyField",
+  "version": "1.0.0",
+  "description": "",
+  "svelte": "js/index.js",
+  "main": "static/js/fields/MetabolomicsStudyField.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -cw"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "rollup": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "svelte": "^3.5.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
