@@ -116,68 +116,68 @@ system R is at /usr/bin/R /usr/lib64/R</br>
 system R packages go into /usr/lib64/R/library</br>
 ]]
 #### # is comment, $ at start indicate linux command
-Be in your home folder, /home/username: 
-&#35; install jupyter in user area, in the folder /home/username/.local/bunch-of-folders
-$pip3 install --user --no-cache-dir jupyter
-&#35; test it
+Be in your home folder, /home/username: </br>
+&#35; install jupyter in user area, in the folder /home/username/.local/bunch-of-folders</br>
+$pip3 install --user --no-cache-dir jupyter</br>
+&#35; test it</br>
 $ jupyter notebook --ip=your_ip_address_format_123.456.789.012 --port=8080</br>
 Go to the page listed, e.g.,</br>
 http://123.249.456.789:8080/?token=4228fsdrjh346t3fdgve716452997a25f3e36b0dc2c3f02a3a0aa34</br>
-User can try to open any existing jupyter notebook if they are in the folder/subfolder
-ctrl-C to stop
+User can try to open any existing jupyter notebook if they are in the folder/subfolder</br>
+ctrl-C to stop</br>
 Install R package IRkernel # need to install R kernel for jupyter in user area; set libloc to user area, e.g., ${HOME}/.local/R if you do not have admin privileges.
-&#35; start R, being in home area ; > indicates R prompt
-$R
->reposlink = 'http://cran.r-project.org'; libloc = "/usr/lib64/R/library/";
->pkgnames = c('IRkernel'); install.packages(pkgnames, repos=reposlink, lib=libloc);
->IRkernel::installspec() # for only current user
->q()
-$ls -al .local/share/jupyter/kernels/
-see something like this
-total 0
-drwxrwxr-x. 4 username username  31 Nov  1 00:08 .
-drwxrwxr-x. 7 username username 140 Nov  2 10:45 ..
-drwxr-xr-x. 2 username username  64 Nov  1 00:08 ir
-drwxrwxr-x. 2 username username  69 Oct 27 22:40 python3
+&#35; start R, being in home area ; > indicates R prompt</br>
+$R</br>
+>reposlink = 'http://cran.r-project.org'; libloc = "/usr/lib64/R/library/";</br>
+>pkgnames = c('IRkernel'); install.packages(pkgnames, repos=reposlink, lib=libloc);</br>
+>IRkernel::installspec() # for only current user</br>
+>q()</br>
+$ls -al .local/share/jupyter/kernels/</br>
+see something like this</br>
+total 0</br>
+drwxrwxr-x. 4 username username  31 Nov  1 00:08 .</br>
+drwxrwxr-x. 7 username username 140 Nov  2 10:45 ..</br>
+drwxr-xr-x. 2 username username  64 Nov  1 00:08 ir</br>
+drwxrwxr-x. 2 username username  69 Oct 27 22:40 python3</br>
  
 #### # now jupyter notebooks based on R code should work after you select R kernel after starting jupyter
-$ jupyter notebook --ip=123.456.789.012 --port=8080
+$ jupyter notebook --ip=123.456.789.012 --port=8080</br>
 
 ##(2)	How to Install MetENP R package through R devtools in user area</br>
 
-If already installed, this section can be ignored.
-Download or clone MetENPAppyter folder from github. Be careful not to overwrite existing folders [create and be in a different folder as needed].
-$git clone https://github.com/metabolomicsworkbench/MetENPAppyter.git MetENPAppyter
-The necessary files for installing MetENP R package are located inside the sub-folder MetENP_R inside the MetENPAppyter folder.
-#### # install MetENP R package in user area: first copy MetENP from MetENP_R to /home/username/.local folder
-$cd ~/.local; mkdir R;
-[username@server .local]$cp -R /path-to-MetENPAppyter-folder/MetENP_R/MetENP .
+If already installed, this section can be ignored.</br>
+Download or clone MetENPAppyter folder from github. Be careful not to overwrite existing folders [create and be in a different folder as needed].</br>
+$git clone https://github.com/metabolomicsworkbench/MetENPAppyter.git MetENPAppyter</br>
+The necessary files for installing MetENP R package are located inside the sub-folder MetENP_R inside the MetENPAppyter folder.</br>
+#### # install MetENP R package in user area: first copy MetENP from MetENP_R to /home/username/.local folder</br>
+$cd ~/.local; mkdir R;</br>
+[username@server .local]$cp -R /path-to-MetENPAppyter-folder/MetENP_R/MetENP .</br>
 
-$R
-#If devtools is not already installed for all, install it in system R or user R area (see how to set libloc below)
->USER_HOME=Sys.getenv("HOME"); # so that we don’t need to hard code /home/username
->reposlink = 'http://cran.r-project.org'; libloc = paste0(USER_HOME, “/.local/R/");
->#pkgnames = c("devtools"); install.packages(pkgnames, repos=reposlink, lib=libloc);
->library("devtools");
->devtools::install("MetENP", args = paste0("--library=", USER_HOME, "/.local/R")); # for unix local account # uses R CMD INSTALL
->q()
+$R</br>
+&#35; If devtools is not already installed for all, install it in system R or user R area (see how to set libloc below)</br>
+>USER_HOME=Sys.getenv("HOME"); # so that we don’t need to hard code /home/username</br>
+>reposlink = 'http://cran.r-project.org'; libloc = paste0(USER_HOME, “/.local/R/");</br>
+>#pkgnames = c("devtools"); install.packages(pkgnames, repos=reposlink, lib=libloc);</br>
+>library("devtools");</br>
+>devtools::install("MetENP", args = paste0("--library=", USER_HOME, "/.local/R")); # for unix local account # uses R CMD INSTALL</br>
+>q()</br>
 #### # if all went well, this would have installed MetENP in /home/username/.local/R
-$ ls -al /home/username/.local/R
+$ ls -al /home/username/.local/R</br>
  
-#### # to check if MetENP can be loaded
-$R
-#### # modify .libPaths so that it can find R package MetENP
->USER_HOME=Sys.getenv("HOME");
->.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") )); # since MetENP installed in user area, need to include that in path
->library("MetENP") # should load without errors
-#### # Now ready to run jupyter, being in a folder containing *.ipynb file, e.g., 
-/path-to-MetENPAppyter-folder/
-$ jupyter notebook --ip=123.456.789.012 --port=8080
-go to webpage listed and open a MetENP jupyter notebook 
-Near top in that file, insert the lines, or some of these lines to set .libPaths and load MetENP R library.
->USER_HOME=Sys.getenv("HOME");
->.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") ))
->library("MetENP") # should load without errors
+&#35; to check if MetENP can be loaded</br>
+$R</br>
+&#35; modify .libPaths so that it can find R package MetENP</br>
+>USER_HOME=Sys.getenv("HOME");</br>
+>.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") )); # since MetENP installed in user area, need to include that in path</br>
+>library("MetENP") # should load without errors</br>
+&#35; Now ready to run jupyter, being in a folder containing *.ipynb file, e.g., </br>
+/path-to-MetENPAppyter-folder/</br>
+$ jupyter notebook --ip=123.456.789.012 --port=8080</br>
+Go to webpage listed and open a MetENP jupyter notebook </br>
+Near top in that file, insert the lines, or some of these lines to set .libPaths and load MetENP R library.</br>
+>USER_HOME=Sys.getenv("HOME");</br>
+>.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") ))</br>
+>library("MetENP") # should load without errors</br>
  
 ##(3)	Appyter</br>
 
@@ -195,30 +195,29 @@ https://stackoverflow.com/questions/13992214/how-to-import-a-globally-installed-
 To be able to use python packages from system installation (global) too, In the virtual environment directory, edit the file pyvenv.cfg. Set the parameter include-system-site-packages = true, and save the file. The globally installed modules will appear the next time you activate (source venv/bin/activate) your environment. 
 Do these: </br>
 (venv) [username@server MetENPAppyter]$ cd venv/; vi pyvenv.cfg  </br>
-# make the change as above </br>
+&#35; make the change as above </br>
 (venv) [username@server MetENPAppyter]$ cd ..; source venv/bin/activate </br>
 }</br>
 
-[username@server MetENPAppyter]$source venv/bin/activate  
-# to deactivate (so that you can use system python3): simple command: deactivate
-(venv) [username@server MetENPAppyter]$echo "git+git://github.com/Maayanlab/appyter.git" >> appyter_requirements.txt 
-(venv) [username@server MetENPAppyter]$pip3 install -r appyter_requirements.txt  
-(venv) [username@server MetENPAppyter]$which jupyter 
-# In the next step, I specify –prefix (so that metenp kernelspec will be installed in ${PWD}/venv/share/jupyter/kernels/ instead of ~/.local/share/jupyter/kernels/). Note that share/jupyter/kernels gets added to path by the program. Thus, this step is slightly different from what is specified in Daniel Clarke’s video 
-(venv) [username@server MetENPAppyter]$python -m ipykernel install --prefix=${PWD}/venv/ --name=MetENP 
-# check: 
-(venv) [username@server MetENPAppyter]$ls -al venv/share/jupyter/kernels/ 
-# Since we use R code inside the notebook, we must install rpy2; make sure venv is active 
-# Test: make sure the venv python is being used: 
-(venv) [username@server MetENPAppyter]$which python3 
-##~/appyters/ MetENPAppyter/venv/bin/python3 
-## rpy2 installation is not mentioned in Daniel Clarke’s video on appyter
-(venv) [username@server MetENPAppyter]$pip3 install rpy2 
-Then things are ready: do: The ipynb file is located in the main folder MetENPAppyter, which will likely be /home/username/appyters/ MetENPAppyter if the folder structure suggested above was followed. In the command below, use the IP address of the machine on which MetENPAppyter is installed.
-(venv) [username@server MetENPAppyter]$ appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb 
-Go to the web page listed (e.g., http:// 123.249.124.012:8080). 
-You are all set and ready to use the appyter. To make any edits to the ipynb file (do this only if you understand the appyter framework well), use jupyter command, e.g.,
-(venv) [username@server MetENPAppyter]$jupyter notebook --ip=132.249.223.25 --port=8081
-Go to the web page listed, and select the ipynb file from the listing to open/run. You may have to edit the paths used for .libPaths and the RData files korg.RData and ls_path.RData. Save after editing, and reload the appyter in the other browser window.
-Strongly recommended: make a copy of the original ipynb file and edit the copied file after changing its name suitably.
-
+[username@server MetENPAppyter]$source venv/bin/activate  </br>
+&#35; to deactivate (so that you can use system python3): simple command: deactivate</br>
+(venv) [username@server MetENPAppyter]$echo "git+git://github.com/Maayanlab/appyter.git" > appyter_requirements.txt </br>
+(venv) [username@server MetENPAppyter]$pip3 install -r appyter_requirements.txt  </br>
+(venv) [username@server MetENPAppyter]$which jupyter </br>
+&#35; In the next step, I specify –prefix (so that metenp kernelspec will be installed in ${PWD}/venv/share/jupyter/kernels/ instead of ~/.local/share/jupyter/kernels/). Note that share/jupyter/kernels gets added to path by the program. Thus, this step is slightly different from what is specified in Daniel Clarke’s video.</br>
+(venv) [username@server MetENPAppyter]$python -m ipykernel install --prefix=${PWD}/venv/ --name=MetENP </br>
+&#35; check: </br>
+(venv) [username@server MetENPAppyter]$ls -al venv/share/jupyter/kernels/ </br>
+&#35; Since we use R code inside the notebook, we must install rpy2; make sure venv is active </br>
+&#35; Test: make sure the venv python is being used: </br>
+(venv) [username@server MetENPAppyter]$which python3 </br>
+&#35;~/appyters/ MetENPAppyter/venv/bin/python3 </br>
+&#35; rpy2 installation is not mentioned in Daniel Clarke’s video on appyter.</br>
+(venv) [username@server MetENPAppyter]$pip3 install rpy2 </br>
+Then things are ready: do: The ipynb file is located in the main folder MetENPAppyter, which will likely be /home/username/appyters/ MetENPAppyter if the folder structure suggested above was followed. In the command below, use the IP address of the machine on which MetENPAppyter is installed.</br>
+(venv) [username@server MetENPAppyter]$ appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb </br>
+Go to the web page listed (e.g., http:// 123.249.124.012:8080). </br>
+You are all set and ready to use the appyter. To make any edits to the ipynb file (do this only if you understand the appyter framework well), use jupyter command, e.g.,</br>
+(venv) [username@server MetENPAppyter]$jupyter notebook --ip=132.249.223.25 --port=8081</br>
+Go to the web page listed, and select the ipynb file from the listing to open/run. You may have to edit the paths used for .libPaths and the RData files korg.RData and ls_path.RData. Save after editing, and reload the appyter in the other browser window.</br>
+Strongly recommended: make a copy of the original ipynb file and edit the copied file after changing its name suitably.</br>
