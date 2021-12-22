@@ -105,28 +105,28 @@ To run the Appyter locally:<br/>
 
 The syntax of paths is for linux/unix operating system. It can be adjusted for Windows.
 
-<strong>(1)	If one needs to install Jupyter [else ignore this section]</strong></br>
+##(1) If one needs to install Jupyter [else ignore this section]</br>
 
 #### This assumes several programs including python3 and some R libraries are already installed and working [see instructions above for MetENP]
-[[ for general information only:
-#### basic commands: whereis python3 # can check version by starting python3
-#### system python packages go to: /usr/lib/python3.9 /usr/lib64/python3.9 [if installed via sudo dnf] /usr/local/lib/python3.9  /usr/local/lib64/python3.9 [if installed via sudo pip3]
-#### user/local python typically goes into $HOME/.local/various-folders
-#### system R is at /usr/bin/R /usr/lib64/R
-#### system R packages go into /usr/lib64/R/library
+[[ for general information only:</br>
+basic commands: whereis python3 # can check version by starting python3</br>
+system python packages go to: /usr/lib/python3.9 /usr/lib64/python3.9 [if installed via sudo dnf] /usr/local/lib/python3.9  /usr/local/lib64/python3.9 [if installed via sudo pip3]</br>
+user/local python typically goes into $HOME/.local/various-folders</br>
+system R is at /usr/bin/R /usr/lib64/R</br>
+system R packages go into /usr/lib64/R/library</br>
 ]]
 #### # is comment, $ at start indicate linux command
 Be in your home folder, /home/username: 
-#### # install jupyter in user area, in the folder /home/username/.local/bunch-of-folders
+&#35; install jupyter in user area, in the folder /home/username/.local/bunch-of-folders
 $pip3 install --user --no-cache-dir jupyter
-#### # test it
-$ jupyter notebook --ip=your_ip_address_format_123.456.789.012 --port=8080
-Go to the page listed, e.g.,
-http://123.249.456.789:8080/?token=4228fsdrjh346t3fdgve716452997a25f3e36b0dc2c3f02a3a0aa34
-#### # can try to open any existing jupyter notebook if they are in the folder/subfolder
-#### # ctrl-C to stop
-#### # Install R package IRkernel # need to install R kernel for jupyter in user area; set libloc to user area, e.g., ${HOME}/.local/R if you do not have admin privileges.
-#### # start R, being in home area ; > indicates R prompt
+&#35; test it
+$ jupyter notebook --ip=your_ip_address_format_123.456.789.012 --port=8080</br>
+Go to the page listed, e.g.,</br>
+http://123.249.456.789:8080/?token=4228fsdrjh346t3fdgve716452997a25f3e36b0dc2c3f02a3a0aa34</br>
+User can try to open any existing jupyter notebook if they are in the folder/subfolder
+ctrl-C to stop
+Install R package IRkernel # need to install R kernel for jupyter in user area; set libloc to user area, e.g., ${HOME}/.local/R if you do not have admin privileges.
+&#35; start R, being in home area ; > indicates R prompt
 $R
 >reposlink = 'http://cran.r-project.org'; libloc = "/usr/lib64/R/library/";
 >pkgnames = c('IRkernel'); install.packages(pkgnames, repos=reposlink, lib=libloc);
@@ -143,7 +143,7 @@ drwxrwxr-x. 2 username username  69 Oct 27 22:40 python3
 #### # now jupyter notebooks based on R code should work after you select R kernel after starting jupyter
 $ jupyter notebook --ip=123.456.789.012 --port=8080
 
-<strong>(2)	How to Install MetENP R package through R devtools in user area</strong></br>
+##(2)	How to Install MetENP R package through R devtools in user area</br>
 
 If already installed, this section can be ignored.
 Download or clone MetENPAppyter folder from github. Be careful not to overwrite existing folders [create and be in a different folder as needed].
@@ -179,7 +179,7 @@ Near top in that file, insert the lines, or some of these lines to set .libPaths
 >.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") ))
 >library("MetENP") # should load without errors
  
-<strong>(3)	Appyter</strong></br>
+##(3)	Appyter</br>
 
 Relevant documentations for appyter framework is provided by Daniel Clarke: </br>
 https://github.com/MaayanLab/appyter/blob/master/LICENSE </br>
