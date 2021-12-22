@@ -65,7 +65,7 @@ suppressMessages(library(rjson))<br/>
 suppressMessages(library(tidyverse))<br/>
 
 #### And load all the function with appropriate path (replace 'path' to your own path, e.g., they are inside MetENP_R/MetENP/R relative to the MetENPAppyter folder). 
-#### Please note this step is needed only when you do not wish to download or are hving difficulty in downloading the package
+#### Please note this step is needed only when you do not wish to download or are having difficulty in downloading the package
 
 source('path/compoundinfo.R')<br/>
 source('path/anova_ana.R')<br/>
@@ -93,55 +93,54 @@ source('path/getExtension.R')<br/>
 source('path/separate_data.R')<br/>
 
 # MetENPAppyter
-Please see the detailed instructions below, some of which may be duplicated for continuity. For any questions, please contact: mano@sdsc.edu, 
+Please see the detailed instructions below, some of which may be duplicated for continuity. For any questions, please contact: mano@sdsc.edu or susrinivasan@eng.ucsd.edu.
 
+If python package jupyter, R package MetENP and appyter framework are already installed, please follow these steps. To modify the Appyter, edit MetENP_Appyter.ipynb in the MetENPAppyter folder. <br/>
+To run the Appyter locally:<br/>
+1. source venv/bin/activate<br/>
+2. appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb <br/>
+3. open the browser link that command gives (i.e., http://123.249.124.012:8080)<br/>
 
-If python package jupyter, R package MetENP and appyter framework are already installed, please follow these steps. To modify the Appyter, edit MetENP_Appyter.ipynb in the MetENPAppyter folder. 
-To run the Appyter locally:
-1. source venv/bin/activate
-2. appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb 
-3. open the browser link that command gives (i.e., http://123.249.124.012:8080)
-
-# Detailed instructions 
+## Detailed instructions 
 
 The syntax of paths is for linux/unix operating system. It can be adjusted for Windows.
 
 <strong>(1)	If one needs to install Jupyter [else ignore this section]</strong></br>
 
-## This assumes several programs including python3 and some R libraries are already installed and working [see instructions above for MetENP]
+#### This assumes several programs including python3 and some R libraries are already installed and working [see instructions above for MetENP]
 [[ for general information only:
-## basic commands: whereis python3 # can check version by starting python3
-## system python packages go to: /usr/lib/python3.9 /usr/lib64/python3.9 [if installed via sudo dnf] /usr/local/lib/python3.9  /usr/local/lib64/python3.9 [if installed via sudo pip3]
-## user/local python typically goes into $HOME/.local/various-folders
-## system R is at /usr/bin/R /usr/lib64/R
-## system R packages go into /usr/lib64/R/library
+#### basic commands: whereis python3 # can check version by starting python3
+#### system python packages go to: /usr/lib/python3.9 /usr/lib64/python3.9 [if installed via sudo dnf] /usr/local/lib/python3.9  /usr/local/lib64/python3.9 [if installed via sudo pip3]
+#### user/local python typically goes into $HOME/.local/various-folders
+#### system R is at /usr/bin/R /usr/lib64/R
+#### system R packages go into /usr/lib64/R/library
 ]]
-# # is comment, $ at start indicate linux command
+#### # is comment, $ at start indicate linux command
 Be in your home folder, /home/username: 
-# install jupyter in user area, in the folder /home/username/.local/bunch-of-folders
+#### # install jupyter in user area, in the folder /home/username/.local/bunch-of-folders
 $pip3 install --user --no-cache-dir jupyter
-# test it
+#### # test it
 $ jupyter notebook --ip=your_ip_address_format_123.456.789.012 --port=8080
 Go to the page listed, e.g.,
 http://123.249.456.789:8080/?token=4228fsdrjh346t3fdgve716452997a25f3e36b0dc2c3f02a3a0aa34
-# can try to open any existing jupyter notebook if they are in the folder/subfolder
-# ctrl-C to stop
-# Install R package IRkernel # need to install R kernel for jupyter in user area; set libloc to user area, e.g., ${HOME}/.local/R if you do not have admin privileges.
-# start R, being in home area ; > indicates R prompt
+#### # can try to open any existing jupyter notebook if they are in the folder/subfolder
+#### # ctrl-C to stop
+#### # Install R package IRkernel # need to install R kernel for jupyter in user area; set libloc to user area, e.g., ${HOME}/.local/R if you do not have admin privileges.
+#### # start R, being in home area ; > indicates R prompt
 $R
 >reposlink = 'http://cran.r-project.org'; libloc = "/usr/lib64/R/library/";
 >pkgnames = c('IRkernel'); install.packages(pkgnames, repos=reposlink, lib=libloc);
 >IRkernel::installspec() # for only current user
 >q()
 $ls -al .local/share/jupyter/kernels/
-# see something like this
+see something like this
 total 0
 drwxrwxr-x. 4 username username  31 Nov  1 00:08 .
 drwxrwxr-x. 7 username username 140 Nov  2 10:45 ..
 drwxr-xr-x. 2 username username  64 Nov  1 00:08 ir
 drwxrwxr-x. 2 username username  69 Oct 27 22:40 python3
  
-# now jupyter notebooks based on R code should work after you select R kernel after starting jupyter
+#### # now jupyter notebooks based on R code should work after you select R kernel after starting jupyter
 $ jupyter notebook --ip=123.456.789.012 --port=8080
 
 <strong>(2)	How to Install MetENP R package through R devtools in user area</strong></br>
@@ -150,7 +149,7 @@ If already installed, this section can be ignored.
 Download or clone MetENPAppyter folder from github. Be careful not to overwrite existing folders [create and be in a different folder as needed].
 $git clone https://github.com/metabolomicsworkbench/MetENPAppyter.git MetENPAppyter
 The necessary files for installing MetENP R package are located inside the sub-folder MetENP_R inside the MetENPAppyter folder.
-# install MetENP R package in user area: first copy MetENP from MetENP_R to /home/username/.local folder
+#### # install MetENP R package in user area: first copy MetENP from MetENP_R to /home/username/.local folder
 $cd ~/.local; mkdir R;
 [username@server .local]$cp -R /path-to-MetENPAppyter-folder/MetENP_R/MetENP .
 
@@ -162,43 +161,43 @@ $R
 >library("devtools");
 >devtools::install("MetENP", args = paste0("--library=", USER_HOME, "/.local/R")); # for unix local account # uses R CMD INSTALL
 >q()
-# if all went well, this would have installed MetENP in /home/username/.local/R
+#### # if all went well, this would have installed MetENP in /home/username/.local/R
 $ ls -al /home/username/.local/R
  
-# to check if MetENP can be loaded
+#### # to check if MetENP can be loaded
 $R
-# modify .libPaths so that it can find R package MetENP
+#### # modify .libPaths so that it can find R package MetENP
 >USER_HOME=Sys.getenv("HOME");
 >.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") )); # since MetENP installed in user area, need to include that in path
 >library("MetENP") # should load without errors
-# Now ready to run jupyter, being in a folder containing *.ipynb file, e.g., 
+#### # Now ready to run jupyter, being in a folder containing *.ipynb file, e.g., 
 /path-to-MetENPAppyter-folder/
 $ jupyter notebook --ip=123.456.789.012 --port=8080
-# go to webpage listed and open a MetENP jupyter notebook 
-# near top in that file, insert the lines, or some of these lines to set .libPaths and load MetENP R library.
+go to webpage listed and open a MetENP jupyter notebook 
+Near top in that file, insert the lines, or some of these lines to set .libPaths and load MetENP R library.
 >USER_HOME=Sys.getenv("HOME");
 >.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") ))
 >library("MetENP") # should load without errors
  
 <strong>(3)	Appyter</strong></br>
 
-Relevant documentations for appyter framework is provided by Daniel Clarke: 
-https://github.com/MaayanLab/appyter/blob/master/LICENSE 
-https://appyters.maayanlab.cloud/#/creating-appyters/  
-cd /path-to-MetENPAppyter-folder/
-Follow Daniel Clarke’s instruction exactly [as needed, use folder names as per your unix account, project name you want to use, etc] 
-Introduction to Developing Appyters: https://www.youtube.com/watch?v=IWyjxvDg8JQ  
-Look at the script displayed at about 18 minutes in the video. 
-[username@server MetENPAppyter]$python3 -m venv venv 
-{
-If system python already has many useful packages such as numpy, etc, installed, one can make them available in the venv. Else, later, you might get errors when running the appyter notebook.
-https://stackoverflow.com/questions/13992214/how-to-import-a-globally-installed-package-to-virtualenv-folder:  
+Relevant documentations for appyter framework is provided by Daniel Clarke: </br>
+https://github.com/MaayanLab/appyter/blob/master/LICENSE </br>
+https://appyters.maayanlab.cloud/#/creating-appyters/  </br>
+cd /path-to-MetENPAppyter-folder/</br>
+Follow Daniel Clarke’s instruction exactly [as needed, use folder names as per your unix account, project name you want to use, etc] </br>
+Introduction to Developing Appyters: https://www.youtube.com/watch?v=IWyjxvDg8JQ  </br>
+Look at the script displayed at about 18 minutes in the video. </br>
+[username@server MetENPAppyter]$python3 -m venv venv </br>
+{</br>
+If system python already has many useful packages such as numpy, etc, installed, one can make them available in the venv. Else, later, you might get errors when running the appyter notebook.</br>
+https://stackoverflow.com/questions/13992214/how-to-import-a-globally-installed-package-to-virtualenv-folder:  </br>
 To be able to use python packages from system installation (global) too, In the virtual environment directory, edit the file pyvenv.cfg. Set the parameter include-system-site-packages = true, and save the file. The globally installed modules will appear the next time you activate (source venv/bin/activate) your environment. 
-Do these: 
-(venv) [username@server MetENPAppyter]$ cd venv/; vi pyvenv.cfg  
-# make the change as above 
-(venv) [username@server MetENPAppyter]$ cd ..; source venv/bin/activate 
-}
+Do these: </br>
+(venv) [username@server MetENPAppyter]$ cd venv/; vi pyvenv.cfg  </br>
+# make the change as above </br>
+(venv) [username@server MetENPAppyter]$ cd ..; source venv/bin/activate </br>
+}</br>
 
 [username@server MetENPAppyter]$source venv/bin/activate  
 # to deactivate (so that you can use system python3): simple command: deactivate
