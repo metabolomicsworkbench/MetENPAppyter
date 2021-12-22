@@ -27,12 +27,12 @@ library("devtools")
 MetENP package depends on following Bioconductor packages to function properly: KEGGREST, KEGGgraph, pathview and KEGG.db. 
  You may need to install these via:
 
-if (!requireNamespace("BiocManager", quietly = TRUE))
- install.packages("BiocManager")    
- BiocManager::install("KEGGREST")
- BiocManager::install("KEGGgraph")
- BiocManager::install("pathview")
- #BiocManager::install("KEGG.db"); # only for BiocManager version < 3.13
+if (!requireNamespace("BiocManager", quietly = TRUE))<br/>
+ install.packages("BiocManager")    <br/>
+ BiocManager::install("KEGGREST")<br/>
+ BiocManager::install("KEGGgraph")<br/>
+ BiocManager::install("pathview")<br/>
+ #BiocManager::install("KEGG.db"); # only for BiocManager version < 3.13 <br/>
  
  #### Now proceed with installation
 <strong>Through devtools </strong></br>
@@ -93,7 +93,8 @@ source('path/getExtension.R')<br/>
 source('path/separate_data.R')<br/>
 
 # MetENPAppyter
-Please see the detailed instructions below, some of which may be duplicated for continuity.
+Please see the detailed instructions below, some of which may be duplicated for continuity. For any questions, please contact: mano@sdsc.edu, 
+
 
 If python package jupyter, R package MetENP and appyter framework are already installed, please follow these steps. To modify the Appyter, edit MetENP_Appyter.ipynb in the MetENPAppyter folder. 
 To run the Appyter locally:
