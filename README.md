@@ -96,7 +96,7 @@ source('path/separate_data.R')<br/>
 Please see the detailed instructions below, some of which may be duplicated for continuity. For any questions, please contact: mano@sdsc.edu or susrinivasan@eng.ucsd.edu.
 
 If python package jupyter, R package MetENP and appyter framework are already installed, please follow these steps. To modify the Appyter, edit MetENP_Appyter.ipynb in the MetENPAppyter folder using jupyter command. <br/>
-To run the Appyter locally:<br/>
+To run the Appyter (use actual IP address of the machine where MetENPAppyter is installed):<br/>
 1. source venv/bin/activate<br/>
 2. appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb <br/>
 3. open the browser link that command gives (i.e., http://123.249.124.012:8080)<br/>
@@ -105,7 +105,7 @@ To run the Appyter locally:<br/>
 
 The syntax of paths is for linux/unix operating system. It can be adjusted for Windows.
 
-##(1) If one needs to install Jupyter [else ignore this section]</br>
+## (1) If one needs to install Jupyter [else ignore this section]</br>
 
 #### This assumes several programs including python3 and some R libraries are already installed and working [see instructions above for MetENP]
 [[ for general information only:</br>
@@ -143,7 +143,7 @@ drwxrwxr-x. 2 username username  69 Oct 27 22:40 python3</br>
 #### # now jupyter notebooks based on R code should work after you select R kernel after starting jupyter
 $ jupyter notebook --ip=123.456.789.012 --port=8080</br>
 
-##(2)	How to Install MetENP R package through R devtools in user area</br>
+## (2)	How to Install MetENP R package through R devtools in user area</br>
 
 If already installed, this section can be ignored.</br>
 Download or clone MetENPAppyter folder from github. Be careful not to overwrite existing folders [create and be in a different folder as needed].</br>
@@ -179,7 +179,7 @@ Near top in that file, insert the lines, or some of these lines to set .libPaths
 >.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") ))</br>
 >library("MetENP") # should load without errors</br>
  
-##(3)	Appyter</br>
+## (3)	Appyter</br>
 
 Relevant documentations for appyter framework is provided by Daniel Clarke: </br>
 https://github.com/MaayanLab/appyter/blob/master/LICENSE </br>
