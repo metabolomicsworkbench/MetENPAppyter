@@ -95,7 +95,7 @@ source('path/separate_data.R')<br/>
 # MetENPAppyter
 Please see the detailed instructions below, some of which may be duplicated for continuity. For any questions, please contact: mano@sdsc.edu or susrinivasan@eng.ucsd.edu.
 
-If python package jupyter, R package MetENP and appyter framework are already installed, please follow these steps. To modify the Appyter, edit MetENP_Appyter.ipynb in the MetENPAppyter folder. <br/>
+If python package jupyter, R package MetENP and appyter framework are already installed, please follow these steps. To modify the Appyter, edit MetENP_Appyter.ipynb in the MetENPAppyter folder using jupyter command. <br/>
 To run the Appyter locally:<br/>
 1. source venv/bin/activate<br/>
 2. appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb <br/>
