@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: counts and plots significant metabolite</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for metcountplot {MetENP}"><tr><td>metcountplot {MetENP}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>counts and plots significant metabolite</h2>
+
+<h3>Description</h3>
+
+<p>counts and plots significant metabolite
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+metcountplot(df_metclass, metclass, plotting, thres_logfC)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>df_metclass</code></td>
+<td>
+<p>dataframe having significant metabolite with metabolite class as obtained from map_refmet_class.R</p>
+</td></tr>
+<tr valign="top"><td><code>metclass</code></td>
+<td>
+<p>sub_class, main_class or super_class</p>
+</td></tr>
+<tr valign="top"><td><code>thres_logfC</code></td>
+<td>
+<p>log2 fold change threshold</p>
+</td></tr>
+<tr valign="top"><td><code>plot</code></td>
+<td>
+<p>logical TRUE or FALSE, default true</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+count_changes = metcountplot(df_metclass=sig_metabolites_pubchem, metclass='sub_class', plotting=TRUE, thres_logfC = 0.5)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>MetENP</em> version 0.0.0.9000 <a href="00Index.html">Index</a>]</div>
+</div></body></html>

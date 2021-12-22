@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Performs anova analysis Performs an anova across all response...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for anova_ana {MetENP}"><tr><td>anova_ana {MetENP}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Performs anova analysis
+Performs an anova across all response variables. The function takes 2
+independent variables.</h2>
+
+<h3>Description</h3>
+
+<p>Performs anova analysis
+Performs an anova across all response variables. The function takes 2
+independent variables.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+anova_ana(
+  metabolomics_data,
+  met_col,
+  analysis_type,
+  sample_col,
+  metadata,
+  normalization,
+  factor_col1,
+  factor_col2,
+  p_adjust
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>metabolomics_data</code></td>
+<td>
+<p>metabolomics data</p>
+</td></tr>
+<tr valign="top"><td><code>met_col</code></td>
+<td>
+<p>column with metabolite names</p>
+</td></tr>
+<tr valign="top"><td><code>analysis_type</code></td>
+<td>
+<p>type of analysis ex-GCMS, HILIAC positive ion mode.</p>
+</td></tr>
+<tr valign="top"><td><code>sample_col</code></td>
+<td>
+<p>the column name having samples</p>
+</td></tr>
+<tr valign="top"><td><code>metadata</code></td>
+<td>
+<p>Metadata</p>
+</td></tr>
+<tr valign="top"><td><code>normalization</code></td>
+<td>
+<p>normalization methods any of the three: half_of_min, remove_NAs and 50percent
+</p>
+
+<ol>
+<li><p> half_of_min: where the NAs are replaced by half of min values in the data
+</p>
+</li>
+<li><p> remove_NAs: where Cols with NAs values are removed
+</p>
+</li>
+<li><p> 50percent: where cols with more than 50% NAs values are removed
+</p>
+</li></ol>
+</td></tr>
+<tr valign="top"><td><code>factor_col1</code></td>
+<td>
+<p>column name of first independent variable</p>
+</td></tr>
+<tr valign="top"><td><code>factor_col2</code></td>
+<td>
+<p>column name of second independent variable</p>
+</td></tr>
+<tr valign="top"><td><code>p_adjust</code></td>
+<td>
+<p>Method for p value adjustment, i.e. &quot;fdr&quot;</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+anova_result = anova_ana(metabolomics_data=data,met_col="metabolite_name",analysis_type=c('Phospholipids, Chol. esters and Diacylglycerols','Sphingolipids'), metadata=metadata,normalization="50percent", factor_col1="TreatmentGroup",factor_col2="SamplingTimePoint",p_adjust="fdr")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>MetENP</em> version 0.0.0.9000 <a href="00Index.html">Index</a>]</div>
+</div></body></html>

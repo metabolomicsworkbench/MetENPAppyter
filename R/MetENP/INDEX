@@ -1,0 +1,46 @@
+anova_ana               Performs anova analysis Performs an anova
+                        across all response variables. The function
+                        takes 2 independent variables.
+comp_linkedto_pathways
+                        counts total no of compounds that are linked to
+                        KEGG pathways
+compoundinfo            Counts total no of compound in a pathway that
+                        has been linked to significant metabolites This
+                        will help in calculating HG score for
+                        metabolite enrichment
+convert_refmet          Associates refmet class to the metabolites
+dotplot_met_class_path
+                        Plots dot plot pf PATHWAY and Metabolite class
+enzyme_gene_info        Gets gene and enzyme info
+getmwstudies            Gets metabolomics data, metadata and metabolite
+                        info from Metabolomics Workbench using REST
+                        service
+ls_path                 compound linked to kegg pathways
+map_keggid              Assigns kegg id to the significant metabolites
+mapspspath              Maps species specific pathways This is
+                        important because sometimes some species may
+                        not have some pathways
+met_pathways            Gives information on pathways linked to
+                        significant metabolites specific to species of
+                        choice
+metclassenrichment      Provides enrichment score of the selected
+                        metabolic class via hypergeometric score
+metcountplot            counts and plots significant metabolite
+path_enrichmentscore    Calculates pathway enrichment score of the
+                        pathways linked to significant metabolites
+pathinfo                Provides pathway or orthology information from
+                        reaction data of significant metabolite
+plot_heatmap            Plots heatmap
+plot_met_enrichment     Plots metabolite enrichment score
+plot_pathway_networks   Plots 1st degree pathway network of only
+                        pathways having significant pathway score
+plot_volcano            Plots Volcano plot
+react_substrate         Gets information whether metabolite is a
+                        product or substrate
+rxninfo                 Gives details of reactions for the metabolites
+separate_data           Separates user data into metadata and
+                        metabolomics data with metabolite measurements
+significant_met         Provides log2fold change and p value on
+                        metabolomics data using t test.
+significant_met_own     Provides log2fold change and p value on custom
+                        metabolomics data using t test.

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Provides enrichment score of the selected metabolic class via...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for metclassenrichment {MetENP}"><tr><td>metclassenrichment {MetENP}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Provides enrichment score of the selected metabolic class via hypergeometric score</h2>
+
+<h3>Description</h3>
+
+<p>Provides enrichment score of the selected metabolic class via hypergeometric score
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+metclassenrichment(df_metclass, refmet_class, metclass, enrich_stats, no)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>df_metclass</code></td>
+<td>
+<p>dataframe having significant metabolite with metabolite class and kegg ids</p>
+</td></tr>
+<tr valign="top"><td><code>refmet_class</code></td>
+<td>
+<p>dataframe having all the metabolites in the study with refmet classification</p>
+</td></tr>
+<tr valign="top"><td><code>metclass</code></td>
+<td>
+<p>Sub class, Main class or Super class</p>
+</td></tr>
+<tr valign="top"><td><code>enrich_stats</code></td>
+<td>
+<p>HG for hypergeometric score ## leaves room for further including of KS stats</p>
+</td></tr>
+<tr valign="top"><td><code>no</code></td>
+<td>
+<p>number of significant metabolites that should be in a class, default 1, should increase to 3 or more for a
+better statistically significant score. Default is chosen as 1 so as to get information on all the significant metabolites without any filtering.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+metenrichment = metclassenrichment(df_metclass=sig_metabolites_kegg_id, refmet_class, metclass= "Sub class",enrich_stats="HG",no=1)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>MetENP</em> version 0.0.0.9000 <a href="00Index.html">Index</a>]</div>
+</div></body></html>
