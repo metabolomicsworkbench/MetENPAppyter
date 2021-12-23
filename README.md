@@ -214,10 +214,10 @@ Do these: </br>
 &#35;~/appyters/ MetENPAppyter/venv/bin/python3 </br>
 &#35; rpy2 installation is not mentioned in Daniel Clarke’s video on appyter.</br>
 (venv) [username@server MetENPAppyter]$pip3 install rpy2 </br>
-Then things are ready: do: The ipynb file is located in the main folder MetENPAppyter, which will likely be /home/username/appyters/ MetENPAppyter if the folder structure suggested above was followed. In the command below, use the IP address of the machine on which MetENPAppyter is installed.</br>
+Then things are ready: do: The ipynb file is located in the main folder MetENPAppyter, which will likely be /home/username/somefolder/MetENPAppyter if the folder structure suggested above was followed. In the command below, use the IP address of the machine on which MetENPAppyter is installed.</br>
 (venv) [username@server MetENPAppyter]$ appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb </br>
 Go to the web page listed (e.g., http:// 123.249.124.012:8080). </br>
 You are all set and ready to use the appyter. To make any edits to the ipynb file (do this only if you understand the appyter framework well), use jupyter command, e.g.,</br>
 (venv) [username@server MetENPAppyter]$jupyter notebook --ip=132.249.223.25 --port=8081</br>
 Go to the web page listed, and select the ipynb file from the listing to open/run. You may have to edit the paths used for .libPaths and the RData files korg.RData and ls_path.RData. Save after editing, and reload the appyter in the other browser window.</br>
-Strongly recommended: make a copy of the original ipynb file and edit the copied file after changing its name suitably.</br>
+###### Strongly recommended: make a copy of the original ipynb file and edit the copied file after changing its name suitably.</br>
