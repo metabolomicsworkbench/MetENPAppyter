@@ -18,7 +18,7 @@ Contact: biosonal@gmail.com; kschoudhary@eng.ucsd.edu
 
 ## Installation
 
-Download or clone MetENPAppyter folder from github. Be careful not to overwrite existing folders [create and be in a different folder as needed].
+Download or clone MetENPAppyter folder from github. Be careful not to overwrite existing folders [create and be in a different folder as needed].</br>
 $git clone https://github.com/metabolomicsworkbench/MetENPAppyter.git MetENPAppyter
 
 install.packages("devtools")<br/>
