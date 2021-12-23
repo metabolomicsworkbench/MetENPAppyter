@@ -128,10 +128,10 @@ ctrl-C to stop</br>
 Install R package IRkernel # need to install R kernel for jupyter in user area; set libloc to user area, e.g., ${HOME}/.local/R if you do not have admin privileges.
 &#35; start R, being in home area ; > indicates R prompt</br>
 $R</br>
->reposlink = 'http://cran.r-project.org'; libloc = "/usr/lib64/R/library/";</br>
->pkgnames = c('IRkernel'); install.packages(pkgnames, repos=reposlink, lib=libloc);</br>
->IRkernel::installspec() # for only current user</br>
->q()</br>
+&#62;reposlink = 'http://cran.r-project.org'; libloc = "/usr/lib64/R/library/";</br>
+&#62;pkgnames = c('IRkernel'); install.packages(pkgnames, repos=reposlink, lib=libloc);</br>
+&#62;IRkernel::installspec() # for only current user</br>
+&#62;q()</br>
 $ls -al .local/share/jupyter/kernels/</br>
 see something like this</br>
 total 0</br>
@@ -155,29 +155,29 @@ $cd ~/.local; mkdir R;</br>
 
 $R</br>
 &#35; If devtools is not already installed for all, install it in system R or user R area (see how to set libloc below)</br>
->USER_HOME=Sys.getenv("HOME"); # so that we don’t need to hard code /home/username</br>
->reposlink = 'http://cran.r-project.org'; libloc = paste0(USER_HOME, “/.local/R/");</br>
->#pkgnames = c("devtools"); install.packages(pkgnames, repos=reposlink, lib=libloc);</br>
->library("devtools");</br>
->devtools::install("MetENP", args = paste0("--library=", USER_HOME, "/.local/R")); # for unix local account # uses R CMD INSTALL</br>
->q()</br>
+&#62;USER_HOME=Sys.getenv("HOME"); # so that we don’t need to hard code /home/username</br>
+&#62;reposlink = 'http://cran.r-project.org'; libloc = paste0(USER_HOME, “/.local/R/");</br>
+&#62;#pkgnames = c("devtools"); install.packages(pkgnames, repos=reposlink, lib=libloc);</br>
+&#62;library("devtools");</br>
+&#62;devtools::install("MetENP", args = paste0("--library=", USER_HOME, "/.local/R")); # for unix local account # uses R CMD INSTALL</br>
+&#62;q()</br>
 #### # if all went well, this would have installed MetENP in /home/username/.local/R
 $ ls -al /home/username/.local/R</br>
  
 &#35; to check if MetENP can be loaded</br>
 $R</br>
 &#35; modify .libPaths so that it can find R package MetENP</br>
->USER_HOME=Sys.getenv("HOME");</br>
->.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") )); # since MetENP installed in user area, need to include that in path</br>
->library("MetENP") # should load without errors</br>
+&#62;USER_HOME=Sys.getenv("HOME");</br>
+&#62;.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") )); # since MetENP installed in user area, need to include that in path</br>
+&#62;library("MetENP") # should load without errors</br>
 &#35; Now ready to run jupyter, being in a folder containing *.ipynb file, e.g., </br>
 /path-to-MetENPAppyter-folder/</br>
 $ jupyter notebook --ip=123.456.789.012 --port=8080</br>
 Go to webpage listed and open a MetENP jupyter notebook </br>
 Near top in that file, insert the lines, or some of these lines to set .libPaths and load MetENP R library.</br>
->USER_HOME=Sys.getenv("HOME");</br>
->.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") ))</br>
->library("MetENP") # should load without errors</br>
+&#62;USER_HOME=Sys.getenv("HOME");</br>
+&#62;.libPaths( c( .libPaths(), paste0(USER_HOME, "/.local/R") ))</br>
+&#62;library("MetENP") # should load without errors</br>
  
 ## (3)	Appyter</br>
 
