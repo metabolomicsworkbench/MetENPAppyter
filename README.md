@@ -192,11 +192,11 @@ Look at the script displayed at about 18 minutes in the video. </br>
 {</br>
 If system python already has many useful packages such as numpy, etc, installed, one can make them available in the venv. Else, later, you might get errors when running the appyter notebook.</br>
 https://stackoverflow.com/questions/13992214/how-to-import-a-globally-installed-package-to-virtualenv-folder:  </br>
-To be able to use python packages from system installation (global) too, In the virtual environment directory, edit the file pyvenv.cfg. Set the parameter include-system-site-packages = true, and save the file. The globally installed modules will appear the next time you activate (source venv/bin/activate) your environment. 
+To be able to use python packages from system installation (global) too, in the virtual environment directory, edit the file pyvenv.cfg. Set the parameter include-system-site-packages = true, and save the file. The globally installed modules will appear the next time you activate (source venv/bin/activate) your environment. 
 Do these: </br>
 (venv) [username@server MetENPAppyter]$ cd venv/; vi pyvenv.cfg  </br>
 &#35; make the change as above </br>
-(venv) [username@server MetENPAppyter]$ cd ..; source venv/bin/activate </br>
+(venv) [username@server venv]$ cd ..; source venv/bin/activate </br>
 }</br>
 
 [username@server MetENPAppyter]$source venv/bin/activate  </br>
@@ -204,7 +204,7 @@ Do these: </br>
 (venv) [username@server MetENPAppyter]$echo "git+git://github.com/Maayanlab/appyter.git" > appyter_requirements.txt </br>
 (venv) [username@server MetENPAppyter]$pip3 install -r appyter_requirements.txt  </br>
 (venv) [username@server MetENPAppyter]$which jupyter </br>
-&#35; In the next step, I specify –prefix (so that metenp kernelspec will be installed in ${PWD}/venv/share/jupyter/kernels/ instead of ~/.local/share/jupyter/kernels/). Note that share/jupyter/kernels gets added to path by the program. Thus, this step is slightly different from what is specified in Daniel Clarke’s video.</br>
+&#35; In the next step, I specify –prefix (so that metenp kernelspec will be installed in ${PWD}/venv/share/jupyter/kernels/ instead of ${HOME}/.local/share/jupyter/kernels/). Note that share/jupyter/kernels gets added to path by the program. Thus, this step is slightly different from what is specified in Daniel Clarke’s video.</br>
 (venv) [username@server MetENPAppyter]$python -m ipykernel install --prefix=${PWD}/venv/ --name=MetENP </br>
 &#35; check: </br>
 (venv) [username@server MetENPAppyter]$ls -al venv/share/jupyter/kernels/ </br>
