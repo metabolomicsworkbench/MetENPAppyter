@@ -93,7 +93,9 @@ source('path/getExtension.R')<br/>
 source('path/separate_data.R')<br/>
 
 # MetENPAppyter
-Please see the detailed instructions below, some of which may be duplicated for continuity. For any questions, please contact: mano@sdsc.edu or susrinivasan@eng.ucsd.edu.
+Credit: An initial version of MetENP appyter was developed by Callie Boskin (https://github.com/callieboskin) based on MetENP jupyter notebook (by Sonal Choudhary, biosonal@gmail.com). The appyter was further developed by Sumana Srinivasan and Mano Maurya with help from Daniel Clarke (https://github.com/MaayanLab/appyter).
+
+Please see the detailed instructions below, some of which may be duplicated for continuity. For any questions, please contact: Mano Maurya (mano@sdsc.edu) or Sumana Srinivasan (susrinivasan@eng.ucsd.edu).
 
 If python package jupyter, R package MetENP and appyter framework are already installed, please follow these steps. To modify the Appyter, edit MetENP_Appyter.ipynb in the MetENPAppyter folder using jupyter command. <br/>
 To run the Appyter (use actual IP address of the machine where MetENPAppyter is installed):<br/>
@@ -105,7 +107,9 @@ To run the Appyter (use actual IP address of the machine where MetENPAppyter is 
 
 The syntax of paths is for linux/unix operating system. It can be adjusted for Windows.
 
-## (1) If one needs to install Jupyter [else ignore this section]</br>
+## (1) If one needs to install Jupyter</br>
+
+If already installed, this section can be ignored.</br>
 
 #### This assumes several programs including python3 and some R libraries are already installed and working [see instructions above for MetENP]
 [[ for general information only:</br>
@@ -115,7 +119,7 @@ user/local python typically goes into $HOME/.local/various-folders</br>
 system R is at /usr/bin/R /usr/lib64/R</br>
 system R packages go into /usr/lib64/R/library</br>
 ]]
-#### # is comment, $ at start indicate linux command
+#### # is comment, $ at start indicates linux command
 Be in your home folder, /home/username: </br>
 &#35; install jupyter in user area, in the folder /home/username/.local/bunch-of-folders</br>
 $pip3 install --user --no-cache-dir jupyter</br>
