@@ -120,9 +120,9 @@ Be in your home folder, /home/username: </br>
 &#35; install jupyter in user area, in the folder /home/username/.local/bunch-of-folders</br>
 $pip3 install --user --no-cache-dir jupyter</br>
 &#35; test it</br>
-$ jupyter notebook --ip=your_ip_address_format_123.456.789.012 --port=8080</br>
+$ jupyter notebook --ip=your_ip_address_format_123.249.124.012 --port=8080</br>
 Go to the page listed, e.g.,</br>
-http://123.249.456.789:8080/?token=4228fsdrjh346t3fdgve716452997a25f3e36b0dc2c3f02a3a0aa34</br>
+http://123.249.124.012:8080/?token=4228fsdrjh346t3fdgve716452997a25f3e36b0dc2c3f02a3a0aa34</br>
 User can try to open any existing jupyter notebook if they are in the folder/subfolder</br>
 ctrl-C to stop</br>
 Install R package IRkernel # need to install R kernel for jupyter in user area; set libloc to user area, e.g., ${HOME}/.local/R if you do not have admin privileges.
@@ -141,7 +141,7 @@ drwxr-xr-x. 2 username username  64 Nov  1 00:08 ir</br>
 drwxrwxr-x. 2 username username  69 Oct 27 22:40 python3</br>
  
 #### # now jupyter notebooks based on R code should work after you select R kernel after starting jupyter
-$ jupyter notebook --ip=123.456.789.012 --port=8080</br>
+$ jupyter notebook --ip=123.249.124.012 --port=8080</br>
 
 ## (2)	How to Install MetENP R package through R devtools in user area</br>
 
@@ -172,7 +172,7 @@ $R</br>
 &#62;library("MetENP") # should load without errors</br>
 &#35; Now ready to run jupyter, being in a folder containing *.ipynb file, e.g., </br>
 /path-to-MetENPAppyter-folder/</br>
-$ jupyter notebook --ip=123.456.789.012 --port=8080</br>
+$ jupyter notebook --ip=123.249.124.012 --port=8080</br>
 Go to webpage listed and open a MetENP jupyter notebook </br>
 Near top in that file, insert the lines, or some of these lines to set .libPaths and load MetENP R library.</br>
 &#62;USER_HOME=Sys.getenv("HOME");</br>
@@ -218,6 +218,6 @@ Then things are ready: do: The ipynb file is located in the main folder MetENPAp
 (venv) [username@server MetENPAppyter]$ appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb </br>
 Go to the web page listed (e.g., http:// 123.249.124.012:8080). </br>
 You are all set and ready to use the appyter. To make any edits to the ipynb file (do this only if you understand the appyter framework well), use jupyter command, e.g.,</br>
-(venv) [username@server MetENPAppyter]$jupyter notebook --ip=132.249.223.25 --port=8081</br>
+(venv) [username@server MetENPAppyter]$jupyter notebook --ip=123.249.124.012 --port=8081</br>
 Go to the web page listed, and select the ipynb file from the listing to open/run. You may have to edit the paths used for .libPaths and the RData files korg.RData and ls_path.RData. Save after editing, and reload the appyter in the other browser window.</br>
 #### Strongly recommended: make a copy of the original ipynb file and edit the copied file after changing its name suitably.</br>
