@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+    <title>Appyter</title>
+  
+  
+
+    <link rel="stylesheet" href="MetENP_Appyter_ST000915_files/default.css">
+  
+<link href="MetENP_Appyter_ST000915_files/css.css" rel="stylesheet">
+<link rel="stylesheet" href="MetENP_Appyter_ST000915_files/biojupies.css">
+<link rel="stylesheet" href="MetENP_Appyter_ST000915_files/all.css">
+
+  
+
+    <script>
+      window._config = {
+        STATIC_URL: "/static/",
+      }
+    </script>
+    <script src="MetENP_Appyter_ST000915_files/require.js"></script>
+    <script>
+      require.config({
+        paths: {
+          'jquery': "/static/js/lib/jquery/jquery.min",
+          'socketio': "/static/js/lib/socket.io/socket.io.min",
+        },
+        shim: {
+          'socketio': {
+            exports: 'io'
+          },
+        },
+        waitSeconds: 200,
+      })
+      define('socket', ['socketio'], function (io) {
+        return io({ path: "/socket.io" })
+      })
+      define('svelte', function () {
+        return {
+          render: function (self, file, props) {
+            require([file], function (Component) {
+              Object.assign(props, { window: window })
+              while (self.children.length > 0) self.children[0].remove()
+              var component = new Component.default({
+                target: self,
+                props: props,
+              })
+              self.classList.remove('loading')
+            }, function (err) {
+              while (self.children.length > 0) self.children[0].remove()
+              var el = document.createElement('div')
+              el.setAttribute('class', 'alert alert-danger')
+              el.textContent = err.toString()
+              self.append(el)
+            })
+          }
+        }
+      })
+    </script>
+  
+<script>
+  require.config({
+    paths: {
+      'bootstrap': "/static/js/lib/bootstrap/bootstrap.bundle.min",
+    },
+    shim: {
+      'bootstrap': ['jquery'],
+    }
+  })
+</script>
+
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="MetENP_Appyter_ST000915_files/jquery.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/static/js/form.js" src="MetENP_Appyter_ST000915_files/form.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="socketio" src="MetENP_Appyter_ST000915_files/socket.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="MetENP_Appyter_ST000915_files/bootstrap.js"></script><style id="svelte-1p9bywm">.lds-ellipsis.svelte-1p9bywm.svelte-1p9bywm{display:inline-block;position:relative;width:80px;height:80px}.lds-ellipsis.svelte-1p9bywm div.svelte-1p9bywm{position:absolute;top:33px;width:13px;height:13px;border-radius:50%;background:#000;animation-timing-function:cubic-bezier(0, 1, 1, 0)}.lds-ellipsis.svelte-1p9bywm div.svelte-1p9bywm:nth-child(1){left:8px;animation:svelte-1p9bywm-lds-ellipsis1 0.6s infinite}.lds-ellipsis.svelte-1p9bywm div.svelte-1p9bywm:nth-child(2){left:8px;animation:svelte-1p9bywm-lds-ellipsis2 0.6s infinite}.lds-ellipsis.svelte-1p9bywm div.svelte-1p9bywm:nth-child(3){left:32px;animation:svelte-1p9bywm-lds-ellipsis2 0.6s infinite}.lds-ellipsis.svelte-1p9bywm div.svelte-1p9bywm:nth-child(4){left:56px;animation:svelte-1p9bywm-lds-ellipsis3 0.6s infinite}@keyframes svelte-1p9bywm-lds-ellipsis1{0%{transform:scale(0)}100%{transform:scale(1)}}@keyframes svelte-1p9bywm-lds-ellipsis3{0%{transform:scale(1)}100%{transform:scale(0)}}@keyframes svelte-1p9bywm-lds-ellipsis2{0%{transform:translate(0, 0)}100%{transform:translate(24px, 0)}}</style><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/static/js/fields/MetabolomicsStudyField.js" src="MetENP_Appyter_ST000915_files/MetabolomicsStudyField.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/static/js/fields/StringField.js" src="MetENP_Appyter_ST000915_files/StringField.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/static/js/fields/IntField.js" src="MetENP_Appyter_ST000915_files/IntField.js"></script></head>
+<body>
+  
+  
+<div id="_content" class="container">
+  
+  
+<form method="POST" enctype="multipart/form-data" action="#"> <div class="row"><div class="col-sm-12"><div class="mt-3 mb-0 w-100 border-custom rounded bg-lightgrey" data-toggle="collapse" data-target="#INPUT" aria-expanded="true"><div class="d-table w-100 py-2 px-2 py-md-0 px-md-0"><div class="d-table-cell align-middle card-icon px-3 py-3"><img src="MetENP_Appyter_ST000915_files/upload_icon.png" class="w-100 px-1 py-1 rounded bg-white border-grey"></div> <div class="d-table-cell align-middle"><div class="very-small regular pb-2 pr-5">Input the Study, Factors and Analysis type Information</div> <div class="tiny light text-muted">Specify your study here, Resolve Analysis and Factors, then select Analysis and Factors.</div></div></div></div> <div id="INPUT" class="border-grey mx-2 border-top-0 rounded-bottom tiny collapse show"><div class="pt-3"><div class="ssr"><div id="study" class="">
+  
+  
+<div class="row px-4 px-lg-3 pb-4"><div class="col-lg-3 bold text-lg-right my-auto">Study Information<sup data-toggle="tooltip" title="Specify a study ID, and Resolve Analysis and Factors for the study"><i class="far fa-question-circle"></i></sup>:</div> <div class="col-lg-6 pt-2 pt-lg-0">Study ID: <input type="text" value="ST000915"> <br> Analysis: <select><option value="Core G Fatty acids/Eicosanoids" selected="selected">Core G Fatty acids/Eicosanoids</option><option value="Core J Sterols">Core J Sterols</option><option value="Core K Prenols/Cardiolipins">Core K Prenols/Cardiolipins</option><option value="Core E Neutral Lipids">Core E Neutral Lipids</option><option value="Core I Sphingolipids">Core I Sphingolipids</option><option value="Core H Phospholipids">Core H Phospholipids</option><option value="Core G Fatty acids/Eicosanoids___Core J Sterols___Core K Prenols/Cardiolipins___Core E Neutral Lipids___Core I Sphingolipids___Core H Phospholipids">Core
+ G Fatty acids/Eicosanoids___Core J Sterols___Core K 
+Prenols/Cardiolipins___Core E Neutral Lipids___Core I 
+Sphingolipids___Core H Phospholipids</option></select><br>
+Factor Column Name: <select><option value="Diagnosis" selected="selected">Diagnosis</option></select><br>
+Factor 1: <select><option value="Cirrhosis" selected="selected">Cirrhosis</option><option value="NASH">NASH</option><option value="Normal">Normal</option><option value="Steatosis">Steatosis</option></select><br>
+Factor 2: <select><option value="Cirrhosis">Cirrhosis</option><option value="NASH">NASH</option><option value="Normal" selected="selected">Normal</option><option value="Steatosis">Steatosis</option></select> <br></div></div> <textarea readonly="readonly" name="study" type="text" style="display: none;">{"study_id":"ST000915","fac1":"Cirrhosis","fac2":"Normal","anal":"Core G Fatty acids/Eicosanoids","faccol":"Diagnosis"}</textarea></div></div> <div class="ssr"><div id="studyOrg" class="">
+  
+  
+<div class="row px-4 px-lg-3 pb-4"><div class="col-lg-3 bold text-lg-right my-auto">KEGG Organism Code<sup data-toggle="tooltip" title="hsa for human, mmu for mouse, eco for E. coli, rno for rat. See https://www.genome.jp/kegg/catalog/org_list.html for all organisms"><i class="far fa-question-circle"></i></sup>:</div> <div class="col-lg-6 pt-2 pt-lg-0"><input type="text" name="studyOrg" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0 is-valid" value="hsa"> <div class="invalid-feedback">String contains unsupported characters (should match `.*`).</div> </div></div></div></div> <div class="ssr"><div class="row px-3 pb-3">
+  <div class="col-lg-3 bold text-lg-right my-auto">
+    Choose a Metabolite Class
+      <sup data-toggle="tooltip" title="Choose between sub_class, main_class and super_class"><i class="far fa-question-circle"></i></sup>
+    :
+  </div>
+  <div class="col-lg-6 pt-2 pt-lg-0">
+    <select name="classtype" multiple="multiple" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0">
+      
+          <option selected="selected">sub_class</option>
+      
+          <option>main_class</option>
+      
+          <option>super_class</option>
+      
+    </select>
+  </div>
+</div></div> </div></div></div></div><div class="row"><div class="col-sm-12"><div class="mt-3 mb-0 w-100 border-custom rounded bg-lightgrey" data-toggle="collapse" data-target="#SIGM" aria-expanded="true"><div class="d-table w-100 py-2 px-2 py-md-0 px-md-0"><div class="d-table-cell align-middle card-icon px-3 py-3"><img src="MetENP_Appyter_ST000915_files/vol.png" class="w-100 px-1 py-1 rounded bg-white border-grey"></div> <div class="d-table-cell align-middle"><div class="very-small regular pb-2 pr-5">Find Significant Metabolites</div> <div class="tiny light text-muted">Run significance of all the analysis summary together</div></div></div></div> <div id="SIGM" class="border-grey mx-2 border-top-0 rounded-bottom tiny collapse show"><div class="pt-3"><div class="ssr"><div class="row px-3 pb-3">
+  <div class="col-lg-3 bold text-lg-right my-auto">
+    Select Type of Normalization. How would you like to handle missing data?
+      <sup data-toggle="tooltip" title="Select 1. half_of_min: where the NAs are replaced by half of min values in the data, 2. remove_NAs: where Cols with NAs values are removed, or 3. 50percent: where cols with more than 50% NAs values are removed. half_of_min is ideal when you wish to see which metabolites were present in either group. Very high fold change would mean it was present in either group."><i class="far fa-question-circle"></i></sup>
+    :
+  </div>
+  <div class="col-lg-6 pt-2 pt-lg-0">
+    <select name="normtype" multiple="multiple" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0">
+      
+          <option>half_of_min</option>
+      
+          <option>remove_NAs</option>
+      
+          <option selected="selected">50percent</option>
+      
+    </select>
+  </div>
+</div></div> <div class="ssr"><div class="row px-3 pb-3">
+  <div class="col-lg-3 bold text-lg-right my-auto">
+    P-Value Threshhold
+      <sup data-toggle="tooltip" title="P-Value Threshhold for Volcano Plot. Float between 0 and 1."><i class="far fa-question-circle"></i></sup>
+    :
+  </div>
+  <div class="col-lg-6 pt-2 pt-lg-0">
+    <select name="pthres" multiple="multiple" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0">
+      
+          <option>0.001</option>
+      
+          <option>0.002</option>
+      
+          <option>0.005</option>
+      
+          <option>0.01</option>
+      
+          <option>0.02</option>
+      
+          <option>0.05</option>
+      
+          <option selected="selected">0.10</option>
+      
+    </select>
+  </div>
+</div></div> <div class="ssr"><div id="tres_log2foldchange" class="">
+  
+  
+<div class="row px-4 px-lg-3 pb-4"><div class="col-lg-3 bold text-lg-right my-auto">Log2FoldChange Threshhold<sup data-toggle="tooltip" title="Log2FoldChange Threshhold for Volcano Plot."><i class="far fa-question-circle"></i></sup>:</div> <div class="col-lg-6 pt-2 pt-lg-0"><input type="text" name="tres_log2foldchange" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0 is-valid" value="0.0"> <div class="invalid-feedback">String contains unsupported characters (should match `.*`).</div> </div></div></div></div> <div class="ssr"><div class="row px-3 pb-3">
+  <div class="col-lg-3 bold text-lg-right my-auto">
+    Select P Adjust Method
+      <sup data-toggle="tooltip" title="P adjust method for significance analysis of metabolites"><i class="far fa-question-circle"></i></sup>
+    :
+  </div>
+  <div class="col-lg-6 pt-2 pt-lg-0">
+    <select name="padj" multiple="multiple" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0">
+      
+          <option>fdr</option>
+      
+          <option selected="selected">BH</option>
+      
+          <option>holm</option>
+      
+          <option>bonferroni</option>
+      
+          <option>hochberg</option>
+      
+          <option>hommel</option>
+      
+    </select>
+  </div>
+</div></div> </div></div></div></div><div class="row"><div class="col-sm-12"><div class="mt-3 mb-0 w-100 border-custom rounded bg-lightgrey" data-toggle="collapse" data-target="#COUNTCLASS" aria-expanded="true"><div class="d-table w-100 py-2 px-2 py-md-0 px-md-0"><div class="d-table-cell align-middle card-icon px-3 py-3"><img src="MetENP_Appyter_ST000915_files/bar.png" class="w-100 px-1 py-1 rounded bg-white border-grey"></div> <div class="d-table-cell align-middle"><div class="very-small regular pb-2 pr-5">Count Metabolites by Class</div> <div class="tiny light text-muted">Count the metabolites of each class</div></div></div></div> <div id="COUNTCLASS" class="border-grey mx-2 border-top-0 rounded-bottom tiny collapse show"><div class="pt-3"><div class="ssr"><div id="thres_log2foldchange_countclass" class="">
+  
+  
+<div class="row px-4 px-lg-3 pb-4"><div class="col-lg-3 bold text-lg-right my-auto">Log2FoldChange Threshhold for counting<sup data-toggle="tooltip" title="Log2FoldChange Threshhold for counting a metabolite in a class. Float between 0 and 1."><i class="far fa-question-circle"></i></sup>:</div> <div class="col-lg-6 pt-2 pt-lg-0"><input type="text" name="thres_log2foldchange_countclass" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0 is-valid" value="0.0"> <div class="invalid-feedback">String contains unsupported characters (should match `.*`).</div> </div></div></div></div> </div></div></div></div><div class="row"><div class="col-sm-12"><div class="mt-3 mb-0 w-100 border-custom rounded bg-lightgrey" data-toggle="collapse" data-target="#ENRICH" aria-expanded="true"><div class="d-table w-100 py-2 px-2 py-md-0 px-md-0"><div class="d-table-cell align-middle card-icon px-3 py-3"><img src="MetENP_Appyter_ST000915_files/enrich.png" class="w-100 px-1 py-1 rounded bg-white border-grey"></div> <div class="d-table-cell align-middle"><div class="very-small regular pb-2 pr-5">Enrichment Score by Class</div> <div class="tiny light text-muted">Calculate the enrichment score of each metabolite class</div></div></div></div> <div id="ENRICH" class="border-grey mx-2 border-top-0 rounded-bottom tiny collapse show"><div class="pt-3"><div class="ssr"><div id="sigmets" class="">
+  
+  
+<div class="row px-4 px-lg-3 pb-4"><div class="col-lg-3 bold text-lg-right my-auto">Minimum # of (most significant) metabolites needed in a class to include the class in enrichment.<sup data-toggle="tooltip" title="We advise to use the number of metabolites in each class as 3 or more. However, if you want to know the enrichment score for all the metabolites, choose 1."><i class="far fa-question-circle"></i></sup>:</div> <div class="col-lg-6 pt-2 pt-lg-0"><input type="number" name="sigmets" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0 is-valid" value="1"> <div class="invalid-feedback">Value should be an integer
+      </div></div></div></div></div> <div class="ssr"><div class="row px-3 pb-3">
+  <div class="col-lg-3 bold text-lg-right my-auto">
+    Analysis with KEGG
+      <sup data-toggle="tooltip" title="Would you like the enrichment analysis to include all KEGG pathways?"><i class="far fa-question-circle"></i></sup>
+    :
+  </div>
+  <div class="col-lg-6 pt-2 pt-lg-0">
+    <select name="keggTF" multiple="multiple" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0">
+      
+          <option>TRUE</option>
+      
+          <option selected="selected">FALSE</option>
+      
+    </select>
+  </div>
+</div></div> </div></div></div></div><div class="row"><div class="col-sm-12"><div class="mt-3 mb-0 w-100 border-custom rounded bg-lightgrey" data-toggle="collapse" data-target="#HEAT" aria-expanded="true"><div class="d-table w-100 py-2 px-2 py-md-0 px-md-0"><div class="d-table-cell align-middle card-icon px-3 py-3"><img src="MetENP_Appyter_ST000915_files/heat.png" class="w-100 px-1 py-1 rounded bg-white border-grey"></div> <div class="d-table-cell align-middle"><div class="very-small regular pb-2 pr-5">Heatmap</div> <div class="tiny light text-muted">Heatmap of metabolites x enriched pathways</div></div></div></div> <div id="HEAT" class="border-grey mx-2 border-top-0 rounded-bottom tiny collapse show"><div class="pt-3"><div class="ssr"><div id="x_size_heat" class="">
+  
+  
+<div class="row px-4 px-lg-3 pb-4"><div class="col-lg-3 bold text-lg-right my-auto">Font Size for X<sup data-toggle="tooltip" title="To change the size of the heatmap"><i class="far fa-question-circle"></i></sup>:</div> <div class="col-lg-6 pt-2 pt-lg-0"><input type="number" name="x_size_heat" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0 is-valid" value="8"> <div class="invalid-feedback">Value should be an integer
+      </div></div></div></div></div> <div class="ssr"><div id="y_size_heat" class="">
+  
+  
+<div class="row px-4 px-lg-3 pb-4"><div class="col-lg-3 bold text-lg-right my-auto">Font Size for Y<sup data-toggle="tooltip" title="To change the size of the heatmap"><i class="far fa-question-circle"></i></sup>:</div> <div class="col-lg-6 pt-2 pt-lg-0"><input type="number" name="y_size_heat" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0 is-valid" value="6"> <div class="invalid-feedback">Value should be an integer
+      </div></div></div></div></div> </div></div></div></div><div class="row"><div class="col-sm-12"><div class="mt-3 mb-0 w-100 border-custom rounded bg-lightgrey" data-toggle="collapse" data-target="#DOT" aria-expanded="true"><div class="d-table w-100 py-2 px-2 py-md-0 px-md-0"><div class="d-table-cell align-middle card-icon px-3 py-3"><img src="MetENP_Appyter_ST000915_files/dot.png" class="w-100 px-1 py-1 rounded bg-white border-grey"></div> <div class="d-table-cell align-middle"><div class="very-small regular pb-2 pr-5">Dotplot</div> <div class="tiny light text-muted">Plot a dotplot of enrichment by class</div></div></div></div> <div id="DOT" class="border-grey mx-2 border-top-0 rounded-bottom tiny collapse show"><div class="pt-3"><div class="ssr"><div id="x_size_dot" class="">
+  
+  
+<div class="row px-4 px-lg-3 pb-4"><div class="col-lg-3 bold text-lg-right my-auto">Font Size for X<sup data-toggle="tooltip" title="To change the size of the dotplot"><i class="far fa-question-circle"></i></sup>:</div> <div class="col-lg-6 pt-2 pt-lg-0"><input type="number" name="x_size_dot" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0 is-valid" value="8"> <div class="invalid-feedback">Value should be an integer
+      </div></div></div></div></div> <div class="ssr"><div id="y_size_dot" class="">
+  
+  
+<div class="row px-4 px-lg-3 pb-4"><div class="col-lg-3 bold text-lg-right my-auto">Font Size for Y<sup data-toggle="tooltip" title="To change the size of the dotplot"><i class="far fa-question-circle"></i></sup>:</div> <div class="col-lg-6 pt-2 pt-lg-0"><input type="number" name="y_size_dot" class="form-control nodecoration tiny bg-white px-2 py-1 mb-0 is-valid" value="6"> <div class="invalid-feedback">Value should be an integer
+      </div></div></div></div></div> </div></div></div></div> <div class="row"><div class="col-sm-12">&nbsp;</div>  <div class="col-sm-12 text-center"><input class="btn navigate white border-custom bg-blue nodecoration" type="submit" value="Submit"></div></div></form></div>
+
+  
+  
+
+    
+    <script>
+      require(['socket'], function (socket) {
+        var first_connect = true
+        socket.on('connect', function () {
+          if (first_connect === true) {
+            console.debug('connected')
+            first_connect = false
+          } else {
+            window.location.reload()
+          }
+        })
+        socket.on('livereload', function (data) {
+          console.debug('livereload')
+          window.location.reload()
+        })
+      })
+    </script>
+    
+  
+<script>
+require(['jquery', 'bootstrap'], function ($) {
+  $(document).ready(function () {
+    $('.dropdown-toggle').dropdown()
+    $('.collapse').collapse({ toggle: false })
+    $('[data-toggle="tooltip"]').tooltip({ boundary: 'window' })
+  })
+})
+</script>
+
+
+</body></html>
