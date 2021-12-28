@@ -103,6 +103,8 @@ To run the Appyter (use actual IP address of the machine where MetENPAppyter is 
 2. appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb <br/>
 3. open the browser link that the above appyter command gives (i.e., http://123.249.124.012:8080)<br/>
 
+In the vignettes folder, sample html files for the view of the submission and execution pages for study ST000915 are provided. Once the notebook has executed, the user can save it as a jupyter notebook (.ipynb) file or html file.
+
 ## Detailed instructions 
 
 The syntax of paths is for linux/unix operating system. It can be adjusted for Windows.
@@ -137,7 +139,7 @@ $R</br>
 &#62;IRkernel::installspec() # for only current user</br>
 &#62;q()</br>
 $ls -al .local/share/jupyter/kernels/</br>
-see something like this</br>
+The output will appear similar to the lines below:</br>
 total 0</br>
 drwxrwxr-x. 4 username username  31 Nov  1 00:08 .</br>
 drwxrwxr-x. 7 username username 140 Nov  2 10:45 ..</br>
