@@ -99,7 +99,7 @@ If python package jupyter, R package MetENP and appyter framework are already in
 To run the Appyter (use actual IP address of the machine where MetENPAppyter is installed):<br/>
 1. source venv/bin/activate<br/>
 2. appyter --profile=biojupies --host=123.249.124.012 --port=8080 MetENP_Appyter.ipynb <br/>
-3. open the browser link that command gives (i.e., http://123.249.124.012:8080)<br/>
+3. open the browser link that the above appyter command gives (i.e., http://123.249.124.012:8080)<br/>
 
 ## Detailed instructions 
 
