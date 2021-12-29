@@ -37,7 +37,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))<br/>
  #### Now proceed with installation
 <strong>Through devtools </strong></br>
 
-If you do not have admin priviligages, you can install the packages in the user area, e.g., /home/username/.local/R. Please see detailed instructions in the WORD file included.
+If you do not have admin priviligages, you can install the packages in the user area, e.g., /home/username/.local/R. Please see detailed instructions below.
   
 If above steps gives error:
 Install other dependencies and then try installing again: plyr,dplyr,tidyr,purrr,tidygraph,reshape2,ggplot2,ggrepel,
