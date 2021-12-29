@@ -1,5 +1,5 @@
 # MetENP
-Metabolite enrichment analysis and their associated enriched pathways.
+Metabolite enrichment analysis and their associated enriched pathwaysx.
 
 ## Introduction to Enrichment Pipeline
 
