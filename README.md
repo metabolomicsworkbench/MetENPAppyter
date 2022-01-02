@@ -190,7 +190,7 @@ Near top in that file, insert the lines, or some of these lines to set .libPaths
 Relevant documentations for appyter framework is provided by Daniel Clarke: </br>
 https://github.com/MaayanLab/appyter/blob/master/LICENSE </br>
 https://appyters.maayanlab.cloud/#/creating-appyters/  </br>
-cd /path-to-MetENPAppyter-folder/</br>
+$cd /path-to-MetENPAppyter-folder/</br>
 Follow Daniel Clarke’s instruction exactly [as needed, use folder names as per your unix account, project name you want to use, etc] </br>
 Introduction to Developing Appyters: https://www.youtube.com/watch?v=IWyjxvDg8JQ  </br>
 Look at the script displayed at about 18 minutes in the video. </br>
@@ -217,7 +217,7 @@ Do these: </br>
 &#35; Since we use R code inside the notebook, we must install rpy2; make sure venv is active </br>
 &#35; Test: make sure the venv python is being used: </br>
 (venv) [username@server MetENPAppyter]$which python3 </br>
-&#35;~/appyters/ MetENPAppyter/venv/bin/python3 </br>
+&#35;~/appyters/MetENPAppyter/venv/bin/python3 </br>
 &#35; rpy2 installation is not mentioned in Daniel Clarke’s video on appyter.</br>
 (venv) [username@server MetENPAppyter]$pip3 install rpy2 </br>
 Then things are ready: do: The ipynb file is located in the main folder MetENPAppyter, which will likely be /home/username/somefolder/MetENPAppyter if the folder structure suggested above was followed. In the command below, use the IP address of the machine on which MetENPAppyter is installed.</br>
