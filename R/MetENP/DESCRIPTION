@@ -22,8 +22,8 @@ RoxygenNote: 7.1.0
 Suggests: knitr, rmarkdown, MASS, nlme, testthat
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2021-11-22 19:24:27 UTC; mano
+Packaged: 2022-03-31 23:00:13 UTC; mano
 Author: Kumari Sonal Choudhary [aut, cre] (YOUR-ORCID-ID)
 Maintainer: Kumari Sonal Choudhary <kschoudhary@eng.ucsd.edu>
 Depends: R (>= 3.5.0)
-Built: R 4.1.1; ; 2021-11-22 19:24:27 UTC; unix
+Built: R 4.1.3; ; 2022-03-31 23:00:13 UTC; unix
