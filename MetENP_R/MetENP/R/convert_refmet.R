@@ -10,8 +10,10 @@ convert_refmet = function(metdata){
 
   datalist2=list()
   for (i in 1:nrow(metdata)){
+  ## test print added by Sumana 3/31/2022
   path= paste0("https://www.metabolomicsworkbench.org/rest/refmet/match/",as.character(metdata[["metabolite_name"]][i]))
   path=URLencode(path)
+##  print(path)
   r <- httr::GET(url = path)
   r <- httr::content(r, as = "text", encoding = "UTF-8")
   df1 <- jsonlite::fromJSON(r)
@@ -30,9 +32,14 @@ convert_refmet = function(metdata){
   }
   #extract_info <- lapply(df, '[', c(names(df[["Row1"]])))
   final=bind_rows(datalist2)
+##  BUGFIX by Sumana: 03/31/2022 , class_index is deprecated, This code seems to do the exact same in both if and else branches
   if ("metabolite_id" %in% colnames(metdata)){
-  final2=unique(dplyr::select(final,c( -exactmass, -class_index)))
-  }else{final2=unique(dplyr::select(final,c( -exactmass, -class_index)))}
+##  final2=unique(dplyr::select(final,c( -exactmass, -class_index)))
+    final2=unique(dplyr::select(final,c( -exactmass)))
+  } else {
+##    final2=unique(dplyr::select(final,c( -exactmass, -class_index))) ## seems to do the same Sonal code
+    final2=unique(dplyr::select(final,c( -exactmass)))
+  }
   final2=final2[!duplicated(final2$metabolite_name),]
   #final3=final2[,c("metabolite_name","refmet_name")]
   metdata$metabolite_name=as.character(metdata$metabolite_name)
